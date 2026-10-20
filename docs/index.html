@@ -1,461 +1,480 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jayavel K | QA Lead Portfolio</title>
-  <meta name="description" content="Jayavel K — QA Lead specializing in manual, API, and automation testing (Selenium, Playwright, Postman) across web and mobile applications." />
-  <style>
-    :root {
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jayavel K | QA Lead Portfolio</title>
+<meta name="description" content="Jayavel K — QA Lead specializing in manual, API, and automation testing (Selenium, Playwright, Postman) across web and mobile applications." />
+<style>
+  :root {
       --bg: #0d0f1e;
-    --bg-alt: #0a0c18;
-    --card: #151933;
-    --card-border: #232849;
-    --text: #e7e9f5;
-          --muted: #9aa0c3;
-    --accent: #7c6bf5;
-    --accent-2: #5b8cff;
-    --accent-soft: rgba(124, 107, 245, 0.14);
-    --pill-bg: rgba(124, 107, 245, 0.12);
-    --pill-text: #b9aefc;
-          --green: #35c48f;
-    --amber: #e3a33e;
-          --radius: 16px;
-    --max: 1120px;
-}
-  html[data-theme="light"] {
-    --bg: #f5f6fb;
-          --bg-alt: #eceefa;
-          --card: #ffffff;
-          --card-border: #e2e4f3;
-          --text: #1b1d2e;
-    --muted: #595f7c;
-    --accent: #6a4df0;
-    --accent-2: #3e6ef0;
-    --accent-soft: rgba(106, 77, 240, 0.08);
-    --pill-bg: rgba(106, 77, 240, 0.08);
-    --pill-text: #5a3ee0;
-  }
-  * { box-sizing: border-box; }
-  body {
-        margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-  header {
-        position: sticky; top: 0; z-index: 50;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--card-border);
-}
-  nav.wrap {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 72px;
-  }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .brand-mark {
-        width: 42px; height: 42px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; color: #fff; font-size: 15px;
-        flex-shrink: 0;
-}
-  .brand-name { font-weight: 700; font-size: 16px; }
-  .brand-role { font-size: 12px; color: var(--muted); }
-  .nav-links { display: flex; gap: 28px; align-items: center; }
-  .nav-links a { font-size: 14px; color: var(--muted); font-weight: 500; }
-  .nav-links a:hover { color: var(--text); }
-  .theme-toggle {
-        width: 38px; height: 38px; border-radius: 50%;
-    border: 1px solid var(--card-border); background: var(--card);
-    display: flex; align-items: center; justify-content: center; cursor: pointer;
-    font-size: 16px;
-}
-  .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
-
-  section { padding: 96px 0; }
-  .hero { padding-top: 88px; padding-bottom: 72px; position: relative; overflow: hidden; }
-  .hero::before {
-    content: ""; position: absolute; inset: -20% -10% auto -10%; height: 480px;
-    background: radial-gradient(60% 60% at 50% 0%, var(--accent-soft), transparent 70%);
-    pointer-events: none;
-}
-  .hero-inner { text-align: center; position: relative; }
-      .avatar {
-    width: 128px; height: 128px; border-radius: 50%; margin: 0 auto 28px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 44px; font-weight: 700; color: #fff;
-    box-shadow: 0 0 0 6px var(--accent-soft);
-}
-  .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.2rem); margin: 0 0 8px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    font-weight: 800;
-}
-  .hero .role { font-size: clamp(1.1rem, 2.4vw, 1.4rem); color: var(--muted); margin: 0 0 22px; font-weight: 500; }
-  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 28px; }
-      .badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 8px 16px; border-radius: 999px; background: var(--card);
-    border: 1px solid var(--card-border); font-size: 13px; color: var(--muted);
-      }
-  .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 34px; }
-  .btn {
-        padding: 13px 26px; border-radius: 999px; font-weight: 600; font-size: 14px;
-    display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 1px solid transparent;
-  }
-  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
-    .btn-primary:hover { opacity: 0.92; }
-  .btn-ghost { background: var(--card); border-color: var(--card-border); color: var(--text); }
-  .btn-ghost:hover { border-color: var(--accent); }
-  .hero-summary { max-width: 680px; margin: 0 auto; color: var(--muted); font-size: 15px; }
-
-  .section-head { text-align: center; margin-bottom: 48px; }
-  .section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.2rem); margin: 0 0 12px; font-weight: 800; }
-  .section-head .rule { width: 64px; height: 3px; margin: 0 auto; border-radius: 2px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
-  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-  .card {
-        background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
-    padding: 28px;
-  }
-  .card h3 { margin: 0 0 18px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
-  .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  .pill {
-        background: var(--pill-bg); color: var(--pill-text); font-size: 13px; font-weight: 600;
-    padding: 7px 14px; border-radius: 999px;
-  }
-
-  .timeline { display: flex; flex-direction: column; gap: 24px; }
-  .exp-card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 30px; }
-  .exp-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
-  .exp-role { font-size: 18px; font-weight: 700; }
-  .exp-company { color: var(--accent); font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-  .exp-meta { color: var(--muted); font-size: 13px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-  .status-pill { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
-  .status-current { background: rgba(53,196,143,0.15); color: var(--green); }
-  .status-past { background: rgba(154,160,195,0.15); color: var(--muted); }
-  .exp-bullets { list-style: none; margin: 18px 0 20px; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-  .exp-bullets li { display: flex; gap: 10px; font-size: 14.5px; color: var(--text); }
-  .exp-bullets li::before { content: "→"; color: var(--accent); flex-shrink: 0; font-weight: 700; }
-  .proj-badge { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
-  .proj-ongoing { background: rgba(227,163,62,0.15); color: var(--amber); }
-  .proj-completed { background: rgba(53,196,143,0.15); color: var(--green); }
-  .proj-period { color: var(--accent); font-size: 12.5px; font-weight: 600; margin-bottom: 6px; }
-  .proj-desc { color: var(--muted); font-size: 14px; margin: 10px 0 18px; }
-
-  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 44px; }
-  .contact-card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px; display: flex; gap: 16px; align-items: center; }
-  .contact-icon { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 19px; color: #fff; flex-shrink: 0; }
-    .ic-email { background: #e4572e; }
-        .ic-linkedin { background: #0a66c2; }
-  .ic-github { background: #333; }
-  .contact-title { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
-  .contact-sub { font-size: 13px; color: var(--muted); word-break: break-word; }
-  .contact-intro { text-align: center; max-width: 620px; margin: 0 auto; color: var(--muted); font-size: 15px; }
-  footer { border-top: 1px solid var(--card-border); padding: 48px 0; text-align: center; background: var(--bg-alt); }
-  footer .brand-mark { margin: 0 auto 14px; }
-  footer .f-name { font-weight: 700; font-size: 16px; }
-  footer .f-role { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
-  footer .f-copy { color: var(--muted); font-size: 12.5px; }
-
-  .about-wrap { max-width: 780px; margin: 0 auto; color: var(--muted); font-size: 15.5px; display: flex; flex-direction: column; gap: 16px; text-align: left; }
-
-  @media (max-width: 760px) {
-    .nav-links { position: fixed; inset: 72px 0 auto 0; background: var(--bg); flex-direction: column; padding: 20px 24px; border-bottom: 1px solid var(--card-border); display: none; gap: 18px; }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: block; }
-      }
-</style>
-      </head>
-      <body>
-
-      <header>
-        <nav class="wrap">
-          <div class="brand">
-            <div class="brand-mark">JK</div>
-            <div>
-              <div class="brand-name">Jayavel K</div>
-              <div class="brand-role">QA Lead</div>
-            </div>
-          </div>
-          <div class="nav-links" id="navLinks">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
-            <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
-          </div>
-        </nav>
-      </header>
-
-      <section class="hero">
-        <div class="wrap hero-inner">
-          <div class="avatar">JK</div>
-          <h1>Jayavel K</h1>
-          <p class="role">QA Lead</p>
-          <div class="badges">
-            <span class="badge">📍 Chennai, Tamil Nadu</span>
-            <span class="badge">💼 3+ Years Experience</span>
-            <span class="badge">✅ Open to Work</span>
-    </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="mailto:jayavelvel1998@gmail.com">✉️ Contact Me</a>
-      <a class="btn btn-ghost" href="https://jayavelk.vercel.app/resume/Jayavel_Resume.pdf" download>⬇️ Download Resume</a>
-    </div>
-    <p class="hero-summary">QA professional with experience in functional, regression, and API testing across web and mobile applications, skilled in building automated test suites with Selenium WebDriver, Playwright, and Cucumber (BDD).</p>
-        </div>
-      </section>
-
-      <section id="about">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>About Me</h2>
-            <div class="rule"></div>
-          </div>
-          <div class="about-wrap">
-            <p>I'm a QA professional with experience in functional, regression, and API testing across web and mobile applications, skilled in building automated test suites with Selenium WebDriver and Cucumber (BDD).</p>
-            <p>I build automation around Selenium WebDriver (Java, Cucumber BDD) and Playwright, and validate APIs with Postman and Rest Assured as part of the wider test coverage.</p>
-      <p>Day to day, I work across Agile and Waterfall teams, using Azure DevOps and Git to log defects and maintain test reports, and I'm committed to continuous learning and delivering high-quality software.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" style="background:var(--bg-alt);">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Technical Skills</h2>
-            <div class="rule"></div>
-          </div>
-          <div class="grid-3">
-            <div class="card">
-              <h3>🧪 Languages &amp; Testing Frameworks</h3>
-        <div class="tag-row">
-          <span class="pill">Core Java</span>
-          <span class="pill">SQL</span>
-                <span class="pill">JavaScript</span>
-                <span class="pill">Selenium</span>
-                <span class="pill">JUnit</span>
-                <span class="pill">Selenium WebDriver</span>
-                <span class="pill">Cucumber (BDD)</span>
-                <span class="pill">Playwright</span>
-              </div>
-            </div>
-            <div class="card">
-              <h3>🔌 API &amp; Defect Management</h3>
-        <div class="tag-row">
-          <span class="pill">Postman</span>
-          <span class="pill">Rest Assured</span>
-                <span class="pill">Azure DevOps</span>
-                <span class="pill">Git</span>
-              </div>
-            </div>
-            <div class="card">
-              <h3>☁️ CI/CD, Methodologies &amp; Practices</h3>
-              <div class="tag-row">
-                <span class="pill">Jenkins</span>
-                <span class="pill">Maven</span>
-                <span class="pill">JMeter</span>
-                <span class="pill">Azure CI/CD Pipelines</span>
-                <span class="pill">Gen AI</span>
-                <span class="pill">Agile</span>
-                <span class="pill">SDLC</span>
-                <span class="pill">STLC</span>
-                <span class="pill">Test Case Preparation</span>
-          <span class="pill">Defect Tracking</span>
-          <span class="pill">Knowledge Transfer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Professional Experience</h2>
-            <div class="rule"></div>
-          </div>
-          <div class="timeline">
-
-            <div class="exp-card">
-              <div class="exp-top">
-                <div>
-                  <div class="exp-role">QA Automation Engineer — Enterprise Management System (CEC)</div>
-                  <div class="exp-company">Cyrino India</div>
-                </div>
-                <span class="status-pill status-current">Current</span>
-              </div>
-              <div class="exp-meta">Mar 2025 – Present · 1.2 years</div>
-              <ul class="exp-bullets">
-                <li>Test an onboarding platform that streamlines the hiring process for employees and schools, covering automated workflows for employee onboarding, leave management, and salary processing, as well as school budgets, programs, and student records.</li>
-          <li>Review software requirement specifications and translate them into structured test scenarios and test cases.</li>
-          <li>Analyze user stories and define test scenarios based on acceptance criteria, working closely with cross-functional teams.</li>
-                <li>Build and maintain automated test scripts using Playwright to expand regression coverage.</li>
-                <li>Develop reusable test components and procedures to improve team productivity and long-term test maintainability.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="pill">Playwright</span>
-                <span class="pill">Test Design</span>
-                <span class="pill">Regression Testing</span>
-              </div>
-            </div>
-
-            <div class="exp-card">
-              <div class="exp-top">
-                <div>
-                  <div class="exp-role">Junior Test Engineer — Uniform &amp; Laundry Management (We One), Warehouse Management System (AlFahim)</div>
-                  <div class="exp-company">ABN Consultancy Service</div>
-                </div>
-                <span class="status-pill status-past">Past</span>
-              </div>
-              <div class="exp-meta">Dec 2022 – Feb 2025 · 2 years</div>
-              <ul class="exp-bullets">
-                <li>Tested application functionality across web and mobile platforms for client projects, working directly within client environments to complete required testing activities.</li>
-                <li>Created and executed test cases and test scenarios based on application functionality and business requirements.</li>
-          <li>Verified API requests and responses from the development team using Postman and Rest Assured, including APIs for employee uniform data that integrated with the We One mobile application.</li>
-                <li>Developed automation scripts in Selenium for functional testing and retested defects following developer fixes.</li>
-          <li>Performed regression, functional, smoke, and sanity testing; logged defects and maintained test reports in Azure DevOps and Git.</li>
-                <li>Operated within Agile and Waterfall project environments, supporting continuous integration efforts.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="pill">Selenium</span>
-                <span class="pill">Postman</span>
-                <span class="pill">Rest Assured</span>
-                <span class="pill">Azure DevOps</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" style="background:var(--bg-alt);">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Key Projects</h2>
-            <div class="rule"></div>
-          </div>
-          <div class="grid-3">
-
-            <div class="card">
-              <span class="proj-badge proj-ongoing">🚀 Ongoing</span>
-              <h3 style="margin-bottom:4px;">CEC — Enterprise Onboarding Platform</h3>
-        <div class="proj-period">Cyrino India</div>
-        <p class="proj-desc">An enterprise onboarding platform streamlining the hiring process for employees and schools, covering employee onboarding, leave management, salary processing, school budgets, programs, and student records. Reviewed requirements into structured test scenarios and cases, and built Playwright automation scripts to expand regression coverage.</p>
-        <div class="tag-row">
-          <span class="pill">Playwright</span>
-          <span class="pill">Regression Testing</span>
-                <span class="pill">Test Case Design</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="proj-badge proj-completed">✅ Completed</span>
-        <h3 style="margin-bottom:4px;">Uniform &amp; Laundry Management System — We One</h3>
-        <div class="proj-period">ABN Consultancy Service</div>
-              <p class="proj-desc">A uniform and laundry management system handling employee uniform data, integrated with the We One mobile application. Verified API requests and responses using Postman and Rest Assured, including uniform-data APIs feeding the mobile app.</p>
-              <div class="tag-row">
-                <span class="pill">API Testing</span>
-                <span class="pill">Postman</span>
-                <span class="pill">Rest Assured</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <span class="proj-badge proj-completed">✅ Completed</span>
-              <h3 style="margin-bottom:4px;">Warehouse Management System — AlFahim</h3>
-        <div class="proj-period">ABN Consultancy Service</div>
-              <p class="proj-desc">A warehouse management system supporting day-to-day warehouse operations across web and mobile platforms. Created and executed test cases based on application functionality, performed regression, functional, smoke, and sanity testing, and developed Selenium automation scripts.</p>
-        <div class="tag-row">
-          <span class="pill">Functional Testing</span>
-          <span class="pill">Regression Testing</span>
-                <span class="pill">Selenium</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Let's Connect</h2>
-            <div class="rule"></div>
-          </div>
-          <p class="contact-intro">Open to new QA opportunities — functional, regression, API, and automation testing across web and mobile applications. Let's talk about how I can help your team ship reliable software.</p>
-          <div class="contact-grid">
-            <a class="contact-card" href="mailto:jayavelvel1998@gmail.com">
-              <div class="contact-icon ic-email">✉️</div>
-              <div>
-                <div class="contact-title">Email</div>
-                <div class="contact-sub">jayavelvel1998@gmail.com</div>
-              </div>
-            </a>
-            <a class="contact-card" href="https://www.linkedin.com/in/jayavelkj/" target="_blank" rel="noopener">
-              <div class="contact-icon ic-linkedin">in</div>
-              <div>
-                <div class="contact-title">LinkedIn</div>
-                <div class="contact-sub">Connect with me professionally</div>
-              </div>
-            </a>
-            <a class="contact-card" href="https://github.com/LevayaJ" target="_blank" rel="noopener">
-              <div class="contact-icon ic-github">⌁</div>
-              <div>
-                <div class="contact-title">GitHub</div>
-                <div class="contact-sub">View my code and projects</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-        <div class="wrap">
-          <div class="brand-mark">JK</div>
-          <div class="f-name">Jayavel K</div>
-          <div class="f-role">QA Lead</div>
-          <div class="f-copy">© 2026 Jayavel K. All rights reserved.<br/>Built with precision and quality.</div>
-  </div>
-</footer>
-
-      <script>
-        var navToggle = document.getElementById('navToggle');
-  var navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', function () {
-        navLinks.classList.toggle('open');
-  });
-  Array.prototype.forEach.call(navLinks.querySelectorAll('a'), function (a) {
-        a.addEventListener('click', function () { navLinks.classList.remove('open'); });
-  });
-
-  var themeToggle = document.getElementById('themeToggle');
-  var root = document.documentElement;
-  function applyTheme(t) {
-        root.setAttribute('data-theme', t);
-    themeToggle.textContent = t === 'light' ? '☀️' : '🌙';
-  }
-  var saved = null;
-  try { saved = localStorage.getItem('jk-theme'); } catch (e) {}
-  applyTheme(saved || 'dark');
-  themeToggle.addEventListener('click', function () {
-        var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    applyTheme(next);
-    try { localStorage.setItem('jk-theme', next); } catch (e) {}
-  });
-</script>
-
-  </body>
-  </html>
-  
+          --bg-alt: #0a0c18;
+              --card: #151933;
+                  --card-border: #232849;
+                      --text: #e7e9f5;
+                          --muted: #9aa0c3;
+                              --accent: #7c6bf5;
+                                  --accent-2: #5b8cff;
+                                      --accent-soft: rgba(124, 107, 245, 0.14);
+                                          --pill-bg: rgba(124, 107, 245, 0.12);
+                                              --pill-text: #b9aefc;
+                                                  --green: #35c48f;
+                                                      --amber: #e3a33e;
+                                                          --radius: 16px;
+                                                              --max: 1120px;
+                                                                }
+                                                                  html[data-theme="light"] {
+                                                                      --bg: #f5f6fb;
+                                                                          --bg-alt: #eceefa;
+                                                                              --card: #ffffff;
+                                                                                  --card-border: #e2e4f3;
+                                                                                      --text: #1b1d2e;
+                                                                                          --muted: #595f7c;
+                                                                                              --accent: #6a4df0;
+                                                                                                  --accent-2: #3e6ef0;
+                                                                                                      --accent-soft: rgba(106, 77, 240, 0.08);
+                                                                                                          --pill-bg: rgba(106, 77, 240, 0.08);
+                                                                                                              --pill-text: #5a3ee0;
+                                                                                                                }
+                                                                                                                  * { box-sizing: border-box; }
+                                                                                                                    body {
+                                                                                                                    margin: 0;
+                                                                                                                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                                                                                                    background: var(--bg);
+                                                                                                                    color: var(--text);
+                                                                                                                    line-height: 1.6;
+                                                                                                                    transition: background 0.2s ease, color 0.2s ease;
+                                                                                                                    }
+                                                                                                                    a { color: inherit; text-decoration: none; }
+                                                                                                                    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+                                                                                                                    header {
+                                                                                                                    position: sticky; top: 0; z-index: 50;
+                                                                                                                    background: color-mix(in srgb, var(--bg) 85%, transparent);
+                                                                                                                    backdrop-filter: blur(10px);
+                                                                                                                    border-bottom: 1px solid var(--card-border);
+                                                                                                                    }
+                                                                                                                    nav.wrap {
+                                                                                                                    display: flex; align-items: center; justify-content: space-between;
+                                                                                                                    height: 72px;
+                                                                                                                    }
+                                                                                                                    .brand { display: flex; align-items: center; gap: 12px; }
+                                                                                                                    .brand-mark {
+                                                                                                                    width: 42px; height: 42px; border-radius: 50%;
+                                                                                                                    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+                                                                                                                    display: flex; align-items: center; justify-content: center;
+                                                                                                                    font-weight: 700; color: #fff; font-size: 15px;
+                                                                                                                    flex-shrink: 0;
+                                                                                                                    }
+                                                                                                                    .brand-name { font-weight: 700; font-size: 16px; }
+                                                                                                                    .brand-role { font-size: 12px; color: var(--muted); }
+                                                                                                                    .nav-links { display: flex; gap: 28px; align-items: center; }
+                                                                                                                    .nav-links a { font-size: 14px; color: var(--muted); font-weight: 500; }
+                                                                                                                    .nav-links a:hover { color: var(--text); }
+                                                                                                                    .theme-toggle {
+                                                                                                                    width: 38px; height: 38px; border-radius: 50%;
+                                                                                                                    border: 1px solid var(--card-border); background: var(--card);
+                                                                                                                    display: flex; align-items: center; justify-content: center; cursor: pointer;
+                                                                                                                    font-size: 16px;
+                                                                                                                    }
+                                                                                                                    .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+                                                                                                                    section { padding: 96px 0; }
+                                                                                                                    .hero { padding-top: 88px; padding-bottom: 72px; position: relative; overflow: hidden; }
+                                                                                                                    .hero::before {
+                                                                                                                    content: ""; position: absolute; inset: -20% -10% auto -10%; height: 480px;
+                                                                                                                    background: radial-gradient(60% 60% at 50% 0%, var(--accent-soft), transparent 70%);
+                                                                                                                    pointer-events: none;
+                                                                                                                    }
+                                                                                                                    .hero-inner { text-align: center; position: relative; }
+                                                                                                                    .avatar {
+                                                                                                                    width: 128px; height: 128px; border-radius: 50%; margin: 0 auto 28px;
+                                                                                                                    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+                                                                                                                    display: flex; align-items: center; justify-content: center;
+                                                                                                                    font-size: 44px; font-weight: 700; color: #fff;
+                                                                                                                    box-shadow: 0 0 0 6px var(--accent-soft);
+                                                                                                                    }
+                                                                                                                    .hero h1 {
+                                                                                                                    font-size: clamp(2.2rem, 5vw, 3.2rem); margin: 0 0 8px;
+                                                                                                                    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+                                                                                                                    -webkit-background-clip: text; background-clip: text; color: transparent;
+                                                                                                                    font-weight: 800;
+                                                                                                                    }
+                                                                                                                    .hero .role { font-size: clamp(1.1rem, 2.4vw, 1.4rem); color: var(--muted); margin: 0 0 22px; font-weight: 500; }
+                                                                                                                    .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 28px; }
+                                                                                                                    .badge {
+                                                                                                                    display: inline-flex; align-items: center; gap: 6px;
+                                                                                                                    padding: 8px 16px; border-radius: 999px; background: var(--card);
+                                                                                                                    border: 1px solid var(--card-border); font-size: 13px; color: var(--muted);
+                                                                                                                    }
+                                                                                                                    .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 34px; }
+                                                                                                                    .btn {
+                                                                                                                    padding: 13px 26px; border-radius: 999px; font-weight: 600; font-size: 14px;
+                                                                                                                    display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 1px solid transparent;
+                                                                                                                    }
+                                                                                                                    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
+                                                                                                                    .btn-primary:hover { opacity: 0.92; }
+                                                                                                                    .btn-ghost { background: var(--card); border-color: var(--card-border); color: var(--text); }
+                                                                                                                    .btn-ghost:hover { border-color: var(--accent); }
+                                                                                                                    .hero-summary { max-width: 680px; margin: 0 auto; color: var(--muted); font-size: 15px; }
+                                                                                                                    
+                                                                                                                    .section-head { text-align: center; margin-bottom: 48px; }
+                                                                                                                    .section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.2rem); margin: 0 0 12px; font-weight: 800; }
+                                                                                                                    .section-head .rule { width: 64px; height: 3px; margin: 0 auto; border-radius: 2px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+                                                                                                                    
+                                                                                                                    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+                                                                                                                    .card {
+                                                                                                                    background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
+                                                                                                                    padding: 28px;
+                                                                                                                    }
+                                                                                                                    .card h3 { margin: 0 0 18px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+                                                                                                                    .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
+                                                                                                                    .pill {
+                                                                                                                    background: var(--pill-bg); color: var(--pill-text); font-size: 13px; font-weight: 600;
+                                                                                                                    padding: 7px 14px; border-radius: 999px;
+                                                                                                                    }
+                                                                                                                    
+                                                                                                                    .timeline { display: flex; flex-direction: column; gap: 24px; }
+                                                                                                                    .exp-card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 30px; }
+                                                                                                                    .exp-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+                                                                                                                    .exp-role { font-size: 18px; font-weight: 700; }
+                                                                                                                    .exp-company { color: var(--accent); font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+                                                                                                                    .exp-meta { color: var(--muted); font-size: 13px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+                                                                                                                    .status-pill { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
+                                                                                                                    .status-current { background: rgba(53,196,143,0.15); color: var(--green); }
+                                                                                                                    .status-past { background: rgba(154,160,195,0.15); color: var(--muted); }
+                                                                                                                    .exp-bullets { list-style: none; margin: 18px 0 20px; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+                                                                                                                    .exp-bullets li { display: flex; gap: 10px; font-size: 14.5px; color: var(--text); }
+                                                                                                                    .exp-bullets li::before { content: "→"; color: var(--accent); flex-shrink: 0; font-weight: 700; }
+                                                                                                                    
+                                                                                                                    .proj-badge { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
+                                                                                                                    .proj-ongoing { background: rgba(227,163,62,0.15); color: var(--amber); }
+                                                                                                                    .proj-completed { background: rgba(53,196,143,0.15); color: var(--green); }
+                                                                                                                    .proj-period { color: var(--accent); font-size: 12.5px; font-weight: 600; margin-bottom: 6px; }
+                                                                                                                    .proj-desc { color: var(--muted); font-size: 14px; margin: 10px 0 18px; }
+                                                                                                                    
+                                                                                                                    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 44px; }
+                                                                                                                    .contact-card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px; display: flex; gap: 16px; align-items: center; }
+                                                                                                                    .contact-icon { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 19px; color: #fff; flex-shrink: 0; }
+                                                                                                                    .ic-email { background: #e4572e; }
+                                                                                                                    .ic-linkedin { background: #0a66c2; }
+                                                                                                                    .ic-github { background: #333; }
+                                                                                                                    .contact-title { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+                                                                                                                    .contact-sub { font-size: 13px; color: var(--muted); word-break: break-word; }
+                                                                                                                    .contact-intro { text-align: center; max-width: 620px; margin: 0 auto; color: var(--muted); font-size: 15px; }
+                                                                                                                    
+                                                                                                                    footer { border-top: 1px solid var(--card-border); padding: 48px 0; text-align: center; background: var(--bg-alt); }
+                                                                                                                    footer .brand-mark { margin: 0 auto 14px; }
+                                                                                                                    footer .f-name { font-weight: 700; font-size: 16px; }
+                                                                                                                    footer .f-role { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+                                                                                                                    footer .f-copy { color: var(--muted); font-size: 12.5px; }
+                                                                                                                    
+                                                                                                                    .about-wrap { max-width: 780px; margin: 0 auto; color: var(--muted); font-size: 15.5px; display: flex; flex-direction: column; gap: 16px; text-align: left; }
+                                                                                                                    
+                                                                                                                    @media (max-width: 760px) {
+                                                                                                                    .nav-links { position: fixed; inset: 72px 0 auto 0; background: var(--bg); flex-direction: column; padding: 20px 24px; border-bottom: 1px solid var(--card-border); display: none; gap: 18px; }
+                                                                                                                    .nav-links.open { display: flex; }
+                                                                                                                    .nav-toggle { display: block; }
+                                                                                                                    }
+                                                                                                                    </style>
+                                                                                                                    </head>
+                                                                                                                    <body>
+                                                                                                                    
+                                                                                                                    <header>
+                                                                                                                    <nav class="wrap">
+                                                                                                                    <div class="brand">
+                                                                                                                    <div class="brand-mark">JK</div>
+                                                                                                                    <div>
+                                                                                                                    <div class="brand-name">Jayavel K</div>
+                                                                                                                    <div class="brand-role">QA Lead</div>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="nav-links" id="navLinks">
+                                                                                                                    <a href="#about">About</a>
+                                                                                                                    <a href="#skills">Skills</a>
+                                                                                                                    <a href="#experience">Experience</a>
+                                                                                                                    <a href="#projects">Projects</a>
+                                                                                                                    <a href="#certifications">Certifications</a>
+                                                                                                                    <a href="#contact">Contact</a>
+                                                                                                                    </div>
+                                                                                                                    <div style="display:flex; align-items:center; gap:10px;">
+                                                                                                                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+                                                                                                                    <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+                                                                                                                    </div>
+                                                                                                                    </nav>
+                                                                                                                    </header>
+                                                                                                                    
+                                                                                                                    <section class="hero">
+                                                                                                                    <div class="wrap hero-inner">
+                                                                                                                    <div class="avatar">JK</div>
+                                                                                                                    <h1>Jayavel K</h1>
+                                                                                                                    <p class="role">QA Lead</p>
+                                                                                                                    <div class="badges">
+                                                                                                                    <span class="badge">📍 Chennai, Tamil Nadu</span>
+                                                                                                                    <span class="badge">💼 3+ Years Experience</span>
+                                                                                                                    <span class="badge">✅ Open to Work</span>
+                                                                                                                    </div>
+                                                                                                                    <div class="cta-row">
+                                                                                                                    <a class="btn btn-primary" href="mailto:jayavelvel1998@gmail.com">✉️ Contact Me</a>
+                                                                                                                    <a class="btn btn-ghost" href="https://jayavelk.vercel.app/resume/Jayavel_Resume.pdf" download>⬇️ Download Resume</a>
+                                                                                                                    </div>
+                                                                                                                    <p class="hero-summary">QA professional with experience in functional, regression, and API testing across web and mobile applications, skilled in building automated test suites with Selenium WebDriver, Playwright, and Cucumber (BDD).</p>
+                                                                                                                    </div>
+                                                                                                                    </section>
+                                                                                                                    
+                                                                                                                    <section id="about">
+                                                                                                                    <div class="wrap">
+                                                                                                                    <div class="section-head">
+                                                                                                                    <h2>About Me</h2>
+                                                                                                                    <div class="rule"></div>
+                                                                                                                    </div>
+                                                                                                                    <div class="about-wrap">
+                                                                                                                    <p>I'm a QA professional with experience in functional, regression, and API testing across web and mobile applications, skilled in building automated test suites with Selenium WebDriver and Cucumber (BDD).</p>
+                                                                                                                    <p>I build automation around Selenium WebDriver (Java, Cucumber BDD) and Playwright, and validate APIs with Postman and Rest Assured as part of the wider test coverage.</p>
+                                                                                                                    <p>Day to day, I work across Agile and Waterfall teams, using Azure DevOps and Git to log defects and maintain test reports, and I'm committed to continuous learning and delivering high-quality software.</p>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </section>
+                                                                                                                    
+                                                                                                                    <section id="skills" style="background:var(--bg-alt);">
+                                                                                                                    <div class="wrap">
+                                                                                                                    <div class="section-head">
+                                                                                                                    <h2>Technical Skills</h2>
+                                                                                                                    <div class="rule"></div>
+                                                                                                                    </div>
+                                                                                                                    <div class="grid-3">
+                                                                                                                    <div class="card">
+                                                                                                                    <h3>🧪 Languages &amp; Testing Frameworks</h3>
+                                                                                                                    <div class="tag-row">
+                                                                                                                    <span class="pill">Core Java</span>
+                                                                                                                    <span class="pill">SQL</span>
+                                                                                                                    <span class="pill">JavaScript</span>
+                                                                                                                    <span class="pill">Selenium</span>
+                                                                                                                    <span class="pill">JUnit</span>
+                                                                                                                    <span class="pill">Selenium WebDriver</span>
+                                                                                                                    <span class="pill">Cucumber (BDD)</span>
+                                                                                                                    <span class="pill">Playwright</span>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="card">
+                                                                                                                    <h3>🔌 API &amp; Defect Management</h3>
+                                                                                                                    <div class="tag-row">
+                                                                                                                    <span class="pill">Postman</span>
+                                                                                                                    <span class="pill">Rest Assured</span>
+                                                                                                                    <span class="pill">Azure DevOps</span>
+                                                                                                                    <span class="pill">Git</span>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="card">
+                                                                                                                    <h3>☁️ CI/CD, Methodologies &amp; Practices</h3>
+                                                                                                                    <div class="tag-row">
+                                                                                                                    <span class="pill">Jenkins</span>
+                                                                                                                    <span class="pill">Maven</span>
+                                                                                                                    <span class="pill">JMeter</span>
+                                                                                                                    <span class="pill">Azure CI/CD Pipelines</span>
+                                                                                                                    <span class="pill">Gen AI</span>
+                                                                                                                    <span class="pill">Agile</span>
+                                                                                                                    <span class="pill">SDLC</span>
+                                                                                                                    <span class="pill">STLC</span>
+                                                                                                                    <span class="pill">Test Case Preparation</span>
+                                                                                                                    <span class="pill">Defect Tracking</span>
+                                                                                                                    <span class="pill">Knowledge Transfer</span>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </section>
+                                                                                                                    
+                                                                                                                    <section id="experience">
+                                                                                                                    <div class="wrap">
+                                                                                                                    <div class="section-head">
+                                                                                                                    <h2>Professional Experience</h2>
+                                                                                                                    <div class="rule"></div>
+                                                                                                                    </div>
+                                                                                                                    <div class="timeline">
+                                                                                                                    
+                                                                                                                    <div class="exp-card">
+                                                                                                                    <div class="exp-top">
+                                                                                                                    <div>
+                                                                                                                    <div class="exp-role">QA Automation Engineer — Enterprise Management System (CEC)</div>
+                                                                                                                    <div class="exp-company">Cyrino India</div>
+                                                                                                                    </div>
+                                                                                                                    <span class="status-pill status-current">Current</span>
+                                                                                                                    </div>
+                                                                                                                    <div class="exp-meta">Mar 2025 – Present · 1.2 years</div>
+                                                                                                                    <ul class="exp-bullets">
+                                                                                                                    <li>Test an onboarding platform that streamlines the hiring process for employees and schools, covering automated workflows for employee onboarding, leave management, and salary processing, as well as school budgets, programs, and student records.</li>
+                                                                                                                    <li>Review software requirement specifications and translate them into structured test scenarios and test cases.</li>
+                                                                                                                    <li>Analyze user stories and define test scenarios based on acceptance criteria, working closely with cross-functional teams.</li>
+                                                                                                                    <li>Build and maintain automated test scripts using Playwright to expand regression coverage.</li>
+                                                                                                                    <li>Develop reusable test components and procedures to improve team productivity and long-term test maintainability.</li>
+                                                                                                                    </ul>
+                                                                                                                    <div class="tag-row">
+                                                                                                                    <span class="pill">Playwright</span>
+                                                                                                                    <span class="pill">Test Design</span>
+                                                                                                                    <span class="pill">Regression Testing</span>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    
+                                                                                                                    <div class="exp-card">
+                                                                                                                    <div class="exp-top">
+                                                                                                                    <div>
+                                                                                                                    <div class="exp-role">Junior Test Engineer — Uniform &amp; Laundry Management (We One), Warehouse Management System (AlFahim)</div>
+                                                                                                                    <div class="exp-company">ABN Consultancy Service</div>
+                                                                                                                    </div>
+                                                                                                                    <span class="status-pill status-past">Past</span>
+                                                                                                                    </div>
+                                                                                                                    <div class="exp-meta">Dec 2022 – Feb 2025 · 2 years</div>
+                                                                                                                    <ul class="exp-bullets">
+                                                                                                                    <li>Tested application functionality across web and mobile platforms for client projects, working directly within client environments to complete required testing activities.</li>
+                                                                                                                    <li>Created and executed test cases and test scenarios based on application functionality and business requirements.</li>
+                                                                                                                    <li>Verified API requests and responses from the development team using Postman and Rest Assured, including APIs for employee uniform data that integrated with the We One mobile application.</li>
+                                                                                                                    <li>Developed automation scripts in Selenium for functional testing and retested defects following developer fixes.</li>
+                                                                                                                    <li>Performed regression, functional, smoke, and sanity testing; logged defects and maintained test reports in Azure DevOps and Git.</li>
+                                                                                                                    <li>Operated within Agile and Waterfall project environments, supporting continuous integration efforts.</li>
+                                                                                                                    </ul>
+                                                                                                                    <div class="tag-row">
+                                                                                                                    <span class="pill">Selenium</span>
+                                                                                                                    <span class="pill">Postman</span>
+                                                                                                                    <span class="pill">Rest Assured</span>
+                                                                                                                    <span class="pill">Azure DevOps</span>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </section>
+                                                                                                                    
+                                                                                                                    <section id="projects" style="background:var(--bg-alt);">
+                                                                                                                    <div class="wrap">
+                                                                                                                    <div class="section-head">
+                                                                                                                    <h2>Key Projects</h2>
+                                                                                                                    <div class="rule"></div>
+                                                                                                                    </div>
+                                                                                                                    <div class="grid-3">
+                                                                                                                    
+                                                                                                                    <div class="card">
+                                                                                                                    <span class="proj-badge proj-ongoing">🚀 Ongoing</span>
+                                                                                                                    <h3 style="margin-bottom:4px;">CEC — Enterprise Onboarding Platform</h3>
+                                                                                                                    <div class="proj-period">Cyrino India</div>
+                                                                                                                    <p class="proj-desc">An enterprise onboarding platform streamlining the hiring process for employees and schools, covering employee onboarding, leave management, salary processing, school budgets, programs, and student records. Reviewed requirements into structured test scenarios and cases, and built Playwright automation scripts to expand regression coverage.</p>
+                                                                                                                    <div class="tag-row">
+                                                                                                                    <span class="pill">Playwright</span>
+                                                                                                                    <span class="pill">Regression Testing</span>
+                                                                                                                    <span class="pill">Test Case Design</span>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    
+                                                                                                                    <div class="card">
+                                                                                                                    <span class="proj-badge proj-completed">✅ Completed</span>
+                                                                                                                    <h3 style="margin-bottom:4px;">Uniform &amp; Laundry Management System — We One</h3>
+                                                                                                                    <div class="proj-period">ABN Consultancy Service</div>
+                                                                                                                    <p class="proj-desc">A uniform and laundry management system handling employee uniform data, integrated with the We One mobile application. Verified API requests and responses using Postman and Rest Assured, including uniform-data APIs feeding the mobile app.</p>
+                                                                                                                    <div class="tag-row">
+                                                                                                                    <span class="pill">API Testing</span>
+                                                                                                                    <span class="pill">Postman</span>
+                                                                                                                    <span class="pill">Rest Assured</span>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    
+                                                                                                                    <div class="card">
+                                                                                                                    <span class="proj-badge proj-completed">✅ Completed</span>
+                                                                                                                    <h3 style="margin-bottom:4px;">Warehouse Management System — AlFahim</h3>
+                                                                                                                    <div class="proj-period">ABN Consultancy Service</div>
+                                                                                                                    <p class="proj-desc">A warehouse management system supporting day-to-day warehouse operations across web and mobile platforms. Created and executed test cases based on application functionality, performed regression, functional, smoke, and sanity testing, and developed Selenium automation scripts.</p>
+                                                                                                                    <div class="tag-row">
+                                                                                                                    <span class="pill">Functional Testing</span>
+                                                                                                                    <span class="pill">Regression Testing</span>
+                                                                                                                    <span class="pill">Selenium</span>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </section>
+                                                                                                                    
+                                                                                                                    <section id="certifications" style="background:var(--bg-alt);">
+                                                                                                                    <div class="wrap">
+                                                                                                                    <div class="section-head">
+                                                                                                                    <h2>Certifications</h2>
+                                                                                                                    <div class="rule"></div>
+                                                                                                                    </div>
+                                                                                                                    <div class="grid-3">
+                                                                                                                    <div class="card">
+                                                                                                                    <span class="proj-badge proj-completed">📅 Jan 27, 2026</span>
+                                                                                                                    <h3 style="margin-bottom:4px;">Zero to Prod — Building &amp; Testing Web Apps with AI</h3>
+                                                                                                                    <div class="proj-period">ShiftSync — A Tricentis Community</div>
+                                                                                                                    <p class="proj-desc">Certificate of participation for completing a live webinar on building and testing web applications with AI.</p>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </section>
+                                                                                                                    
+                                                                                                                    <section id="contact">
+                                                                                                                    <div class="wrap">
+                                                                                                                    <div class="section-head">
+                                                                                                                    <h2>Let's Connect</h2>
+                                                                                                                    <div class="rule"></div>
+                                                                                                                    </div>
+                                                                                                                    <p class="contact-intro">Open to new QA opportunities — functional, regression, API, and automation testing across web and mobile applications. Let's talk about how I can help your team ship reliable software.</p>
+                                                                                                                    <div class="contact-grid">
+                                                                                                                    <a class="contact-card" href="mailto:jayavelvel1998@gmail.com">
+                                                                                                                    <div class="contact-icon ic-email">✉️</div>
+                                                                                                                    <div>
+                                                                                                                    <div class="contact-title">Email</div>
+                                                                                                                    <div class="contact-sub">jayavelvel1998@gmail.com</div>
+                                                                                                                    </div>
+                                                                                                                    </a>
+                                                                                                                    <a class="contact-card" href="https://www.linkedin.com/in/jayavelkj/" target="_blank" rel="noopener">
+                                                                                                                    <div class="contact-icon ic-linkedin">in</div>
+                                                                                                                    <div>
+                                                                                                                    <div class="contact-title">LinkedIn</div>
+                                                                                                                    <div class="contact-sub">Connect with me professionally</div>
+                                                                                                                    </div>
+                                                                                                                    </a>
+                                                                                                                    <a class="contact-card" href="https://github.com/LevayaJ" target="_blank" rel="noopener">
+                                                                                                                    <div class="contact-icon ic-github">⌁</div>
+                                                                                                                    <div>
+                                                                                                                    <div class="contact-title">GitHub</div>
+                                                                                                                    <div class="contact-sub">View my code and projects</div>
+                                                                                                                    </div>
+                                                                                                                    </a>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </section>
+                                                                                                                    
+                                                                                                                    <footer>
+                                                                                                                    <div class="wrap">
+                                                                                                                    <div class="brand-mark">JK</div>
+                                                                                                                    <div class="f-name">Jayavel K</div>
+                                                                                                                    <div class="f-role">QA Lead</div>
+                                                                                                                    <div class="f-copy">© 2026 Jayavel K. All rights reserved.<br/>Built with precision and quality.</div>
+                                                                                                                    </div>
+                                                                                                                    </footer>
+                                                                                                                    
+                                                                                                                    <script>
+                                                                                                                    var navToggle = document.getElementById('navToggle');
+                                                                                                                    var navLinks = document.getElementById('navLinks');
+                                                                                                                    navToggle.addEventListener('click', function () {
+                                                                                                                    navLinks.classList.toggle('open');
+                                                                                                                    });
+                                                                                                                    Array.prototype.forEach.call(navLinks.querySelectorAll('a'), function (a) {
+                                                                                                                    a.addEventListener('click', function () { navLinks.classList.remove('open'); });
+                                                                                                                    });
+                                                                                                                    
+                                                                                                                    var themeToggle = document.getElementById('themeToggle');
+                                                                                                                    var root = document.documentElement;
+                                                                                                                    function applyTheme(t) {
+                                                                                                                    root.setAttribute('data-theme', t);
+                                                                                                                    themeToggle.textContent = t === 'light' ? '☀️' : '🌙';
+                                                                                                                    }
+                                                                                                                    var saved = null;
+                                                                                                                    try { saved = localStorage.getItem('jk-theme'); } catch (e) {}
+                                                                                                                    applyTheme(saved || 'dark');
+                                                                                                                    themeToggle.addEventListener('click', function () {
+                                                                                                                    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                                                                                                                    applyTheme(next);
+                                                                                                                    try { localStorage.setItem('jk-theme', next); } catch (e) {}
+                                                                                                                    });
+                                                                                                                    </script>
+                                                                                                                    
+                                                                                                                    </body>
+                                                                                                                    </html>
